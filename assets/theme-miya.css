@@ -111,3 +111,67 @@
 /* 追従バー */
 .sticky .lab .hot{color:var(--shu)}
 .sticky .lab .cdmini{color:var(--paper)}
+
+/* =====================================================================
+   PDCA改善 v2（2026-10-08）あまね比較の実測診断にもとづく
+   数値はすべてWCAG比で検算済み。構造セレクタは触らない。
+   ===================================================================== */
+
+/* 1. 本文中CTA：薄い金のピルが背景に溶けていた（1.14〜3.39:1）
+      → くすみテラコッタの濃色へ。輪郭7.23:1 / 白文字7.54:1 */
+.cta .btn{
+  background:linear-gradient(135deg,#8E3A28 0%,#B05437 48%,#8E3A28 100%);
+  background-size:200% 100%;
+  color:#FFF6EE;text-shadow:none;
+  box-shadow:0 14px 32px rgba(142,58,40,.28),inset 0 0 0 1px rgba(255,246,238,.4);
+}
+.cta .btn::after{background:linear-gradient(100deg,transparent,rgba(255,255,255,.26),transparent)}
+.cta .sub{color:#8E3A28}
+
+/* 弱CTA・購入ボタン：枠線が1.55:1で見えなかった → 5.63:1へ */
+.minicta{border:1px solid #7C6032;background:#fff;color:#5A4426;box-shadow:0 2px 10px rgba(124,96,50,.08)}
+.minicta .s{color:#6C625D}
+.pbtn{border:1px solid #7C6032;background:#fff;color:#5A4426}
+.rec .pbtn{
+  background:linear-gradient(135deg,#8E3A28,#B05437 48%,#8E3A28);
+  color:#FFF6EE;border-color:#8E3A28;
+  box-shadow:0 10px 24px rgba(142,58,40,.26),inset 0 0 0 1px rgba(255,246,238,.45);
+}
+.sticky .row a{background:linear-gradient(135deg,#8E3A28,#B05437 48%,#8E3A28);color:#FFF6EE}
+
+/* 2. 「3日間限定」ラベル：lp.cssの朱グラデのまま白文字2.66:1だった → 6.89:1 */
+.limbox .lt{
+  background:linear-gradient(100deg,#9C3A28,#B5432E 50%,#9C3A28);
+  color:#fff;box-shadow:0 4px 14px rgba(156,58,40,.3);
+}
+
+/* 3. 章番号：11px・3.43:1で読めなかった → 12px・5.07:1 */
+.chapno{font-size:12px;opacity:1;color:#7C6032;letter-spacing:.42em}
+
+/* 4. 深さ図の無料層：opacity .8 で3.61:1まで落ちていた → 不透明に */
+.depth .layer.free{opacity:1}
+.depth .layer.free .nm{color:#5A5048}
+.depth .layer.free .sub{color:#6C625D}
+
+/* 5. 罫線・枠線が1.11〜1.49:1で消えていた → 見える濃度へ */
+.chk li{border-bottom-color:rgba(124,96,50,.3)}
+.item,.plan{border-color:rgba(124,96,50,.5)}
+.vs{border-color:rgba(124,96,50,.5)}
+.vs .r{border-bottom-color:rgba(124,96,50,.22)}
+
+/* 6. 背景の起伏：全セクション1.09:1でのっぺりしていた → 段差をつける */
+:root{--bg2:#EDE1D5;--bg3:#F4ECE0}
+.s-ai{background:linear-gradient(180deg,#F2E9DC 0%,var(--bg) 100%)}
+.s-ai-r{background:linear-gradient(180deg,var(--bg) 0%,#EFE5D7 100%)}
+.s-dark{background:#F7F2E9}
+
+/* 7. 特典ボックス：lp.cssの黒ウォッシュが灰色く濁っていた */
+.bonus{background:linear-gradient(180deg,#FFFBEF,#fff);border-color:#B8923F;box-shadow:0 10px 30px rgba(124,96,50,.1)}
+.bonus .bt{background:#8E3A28;color:#fff}
+.bonus .bfree{background-image:linear-gradient(180deg,#A3823B,#7C6030 60%,#6B5224)}
+.bonus .bw,.bonus .bn{color:#6C625D}
+.bonus .bw s{color:#3A3330}
+.bonus .bh{color:#5A4426}
+
+/* 8. ヒーロー見出し：375pxで9文字しか入らず5行に割れていた */
+.hero-copy h1{font-size:28px;letter-spacing:.04em;line-height:1.72}
